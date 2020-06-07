@@ -8,6 +8,7 @@ import click
 import time
 
 
+
 def observe_with(observer, event_handler, pathnames, recursive):
     """
     Single observer thread with a scheduled path and event handler.
@@ -38,7 +39,7 @@ def shell_command(command,patterns,directories):
     ignore_directories = False
     wait_for_process = False
     drop_during_process = False
-    timeout = 1.0
+    timeout = 2.0
     recursive = True
     handler = ShellCommandTrick(shell_command=command,
                                 patterns=patterns,
@@ -69,7 +70,9 @@ def watch_jb(book_folder):
 @click.argument("notebook_folder", type=str, nargs=1)
 def watch_myst(notebook_folder):
     patterns = ['*.md']
-    command = f"sphinx-build -v -a -b html {notebook_folder} ./_build/html"
+    output_name = Path(f"{notebook_folder}/_{notebook_folder}_build/html").resolve()
+    command = f"sphinx-build -v -a -b html {notebook_folder} {output_name}"
+    print(f"\nrunning\n{command}\n")
     directories = [notebook_folder]
     shell_command(command, patterns, directories)
     
