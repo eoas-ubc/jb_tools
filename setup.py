@@ -11,9 +11,13 @@ setup(
     classifiers=[
         'License :: OSI Approved :: BSD License'
     ],
+    install_requires=[
+        "watchdog"
+    ],
     entry_points={
           'console_scripts': [
-              'buildjb = jbscripts.buildjb:main',
+              'buildit = jbscripts.buildjb:main',
+              'watchit = jbscripts.watch_build:main'
           ]
     },
-    long_description=""" """)
+    long_description="""description""")

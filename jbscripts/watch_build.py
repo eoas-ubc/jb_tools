@@ -33,9 +33,7 @@ def observe_with(observer, event_handler, pathnames, recursive):
     observer.join()
 
 
-def shell_command(command,patterns,directories):
-    patterns, ignore_patterns = (['*.md'], [])
-    ignore_patterns = []
+def shell_command(command,patterns,ignore_patterns,directories):
     ignore_directories = False
     wait_for_process = False
     drop_during_process = False
@@ -61,20 +59,22 @@ def main():
 @click.argument("book_folder", type=str, nargs=1)
 def watch_jb(book_folder):
     patterns = ['*.md']
+    ignore_patterns = []
     command = f"jupyter-book build {book_folder}"
     directories = [book_folder]
-    shell_command(command, patterns, directories)
+    shell_command(command, patterns, ignore_patterns, directories)
 
 
 @main.command()
 @click.argument("notebook_folder", type=str, nargs=1)
-def watch_myst(notebook_folder):
+def watch_nb(notebook_folder):
     patterns = ['*.md']
+    ignore_patterns = []
     output_name = Path(f"{notebook_folder}/_{notebook_folder}_build/html").resolve()
     command = f"sphinx-build -v -a -b html {notebook_folder} {output_name}"
     print(f"\nrunning\n{command}\n")
     directories = [notebook_folder]
-    shell_command(command, patterns, directories)
+    shell_command(command, patterns, ignore_patterns, directories)
     
 if __name__ == '__main__':
     main()

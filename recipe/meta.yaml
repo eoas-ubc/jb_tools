@@ -1,34 +1,49 @@
-package:
-    name: runjb
-    version: 0.2
+{% set version = "0.0.1" %}
 
-build:
-  number: 1
-  script: python copy_file.py
+package:
+  name: jb_tools
+  version: {{ version }}
 
 source:
   path: ../
 
+build:
+  number: 2
+  entry_points:
+    - buildit = jbscripts.buildjb:main
+    - watchit = jbscripts.watch_build:main
+    
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+
 requirements:
   build:
     - python ==3.7.*
+    - click
+    - watchdog
+
+  run:
+    - python
+    - click
+    - watchdog
 
 test:
+  imports:
+    - jbscripts
   commands:
-    - if exist %PREFIX%\bin\runjb.ps1 (exit 0) else (exit 1)  # [win]
-    - if exist %PREFIX%\bin\runmyst.ps1 (exit 0) else (exit 1)  # [win]
-    - test -f ${PREFIX}/bin/runmyst.sh  # [unix]
-    - test -f ${PREFIX}/bin/runjb.sh  # [unix]
+    - buildit build-jb --help
+    - buildit build-nb --help
+    - watchit watch-jb --help
+    - watchit watch-nb --help
 
 about:
-  home: https://github.com/eoas-ubc/eoas_tlef/tree/master/converted_docs/wintools
+  home: https://github.com/eoas-ubc/jb_tools
   license: BSD-3-Clause
+  license_family: BSD
   license_file: LICENSE.txt
-  summary: 'shell wrappers for sphinx and jupyer-book'
+  summary: 'tools for working with myst and jupyter-book'
   description: |
-    On windows runjb.ps1 and runmyst.ps1 export PYTHONUTF8=1 before running
-    sphinx or jupyter book.  Unix bash wrappers runjb.sh and runmyst.sh
-    included for symmetry.
+    buildit wraps sphinx and jupyter-book
+    watchit wraps watchdog
 
 extra:
   recipe-maintainers:
