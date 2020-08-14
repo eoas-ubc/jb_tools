@@ -16,8 +16,8 @@ setup(
     ],
     entry_points={
           'console_scripts': [
-              'buildit = jbscripts.buildjb:main',
-              'watchit = jbscripts.watch_build:main'
+              'buildjb = jbscripts.buildjb:main',
+              'watchjb = jbscripts.watch_build:main'
           ]
     },
     long_description="""description""")

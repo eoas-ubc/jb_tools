@@ -52,6 +52,10 @@ def shell_command(command,patterns,ignore_patterns,directories):
 def main():
     """
     set of tools for watching builds
+
+    usage:
+
+    
     """
     pass
 

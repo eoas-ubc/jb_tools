@@ -36,7 +36,7 @@ def main():
 @click.argument("notebook_list",type=str, nargs= -1)
 def build_nb(notebook_list):
     #
-    # change into the directory to execute pandoc, returning
+    # change into the directory to execute sphin-build, returning
     # to the run directory once the command completes or if
     # there is an exception
     #
@@ -61,9 +61,7 @@ def build_nb(notebook_list):
 @click.argument("book_list",type=str, nargs= -1)
 def build_jb(book_list):
     #
-    # change into the directory to execute pandoc, returning
-    # to the run directory once the command completes or if
-    # there is an exception
+    # build a list of jupyter books
     #
     for the_dir in book_list:
         the_dir = Path(the_dir)
