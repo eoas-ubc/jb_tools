@@ -1,0 +1,32 @@
+name: notebook
+channels:
+  - eoas_ubc
+  - conda-forge
+  - defaults
+dependencies:
+  - base-notebook=2020.09.05
+  # NOTE: pip required for running tests in this repo
+  - pip=20
+  - click
+  - git
+  - sphinx=3
+  - jupyter
+  - git
+  - jupytext
+  - sqlalchemy
+  - pyyaml
+  - docutils>=0.15
+  - setuptools
+  - scipy
+  - sympy
+  - matplotlib
+  - bokeh
+  - nbformat
+  - nbconvert
+  - nbclient
+  - pillow
+  - conda-lock
+  - pytest
+  - nodejs
+  - jb_tools>=0.1.3
+  - nbgrader

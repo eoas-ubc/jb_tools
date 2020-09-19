@@ -1,21 +1,13 @@
 # Tools for working with jupyter books and md:myst notebooks
 
-* buildjb:  build a list of jupyter-books or a myst_nb notebook
+* ebp-build:  build a list of jupyter-books or  myst_nb notebooks
 
-* watchjb:  use watchdog to trigger a notebook or jupyter-book build
+* ebp-watch:  use watchdog to trigger a notebook or jupyter-book build
+
+To install:
+
+`conda install -c eoas_ubc jb_tools`
+
+Usage:  see [Readme_conda.md][tools_demo/Readme_conda.md)
 
 
-```
-pip install -e .
-buildjb --help
-watchjb --help
-```
-
-To trigger a browser refresh when  watchjb changes the html, we use
-[live-server](https://www.npmjs.com/package/live-server) installed
-from conda-forge
-
-```
-conda install -c conda-forge nodejs
-npm install -g live-server
-```
