@@ -8,6 +8,6 @@ To install:
 
 `conda install -c eoas_ubc jb_tools`
 
-Usage:  see [Readme_conda.md][tools_demo/Readme_conda.md)
+Usage:  see [Readme_conda.md](tools_demo/Readme_conda.md)
 
 
