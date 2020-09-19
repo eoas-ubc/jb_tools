@@ -17,7 +17,11 @@ https://github.com/eoas-ubc/jb_tools and https://www.npmjs.com/package/live-serv
 
 which produces
 
-conda-linux-64.lock	conda-osx-64.lock	conda-win-64.lock
+```
+conda-linux-64.lock	
+conda-osx-64.lock	
+conda-win-64.lock
+```
 
 2) use these to create a new environment with the approriate
    lock file for your os and install the pypi packages with pip
@@ -48,7 +52,7 @@ If the jupyter-book `_toc.yml` file is in folder `jupyter-book/docs`
    `live-server docs/_build/html`
 
 4) change https://github.com/executablebooks/jupyter-book/blob/master/docs/intro.md
-   and the book shold rebuild and your browser should refresh.
+   and the book should rebuild and your browser should refresh.
 
 ## working with a `myst_nb` notebooks
 
