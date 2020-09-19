@@ -1,4 +1,4 @@
-{% set version = "0.1" %}
+{% set version = "0.1.3" %}
 
 package:
   name: jb_tools
@@ -10,8 +10,8 @@ source:
 build:
   number: 2
   entry_points:
-    - buildit = jbscripts.buildjb:main
-    - watchit = jbscripts.watch_build:main
+    - ebp-build = jbscripts.buildjb:main
+    - ebp-watch = jbscripts.watch_build:main
     
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
@@ -30,20 +30,19 @@ test:
   imports:
     - jbscripts
   commands:
-    - buildit build-jb --help
-    - buildit build-nb --help
-    - watchit watch-jb --help
-    - watchit watch-nb --help
+    - ebp-build jb --help
+    - ebp-build nb --help
+    - ebp-watch jb --help
+    - ebp-watch nb --help
 
 about:
   home: https://github.com/eoas-ubc/jb_tools
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: 'tools for working with myst and jupyter-book'
+  summary: 'tools for working with myst and jupyter-books'
   description: |
-    buildit wraps sphinx and jupyter-book
-    watchit wraps watchdog
+    watch folders for changes and run jb or sphinx-build
 
 extra:
   recipe-maintainers:

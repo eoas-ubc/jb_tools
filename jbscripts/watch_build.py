@@ -51,17 +51,25 @@ def shell_command(command,patterns,ignore_patterns,directories):
 @click.group()
 def main():
     """
-    set of tools for watching builds
+    set of tools for watching book folders and rebuilding
+    when files change
 
     usage:
 
-    
+    ebp-watch jb book_folder
+        -- this runs jb build on book_folder
+
+    ebp-watch nb notebook_folder
+        -- this runs sphinx-build on notebook_folder
     """
     pass
 
 @main.command()
 @click.argument("book_folder", type=str, nargs=1)
-def watch_jb(book_folder):
+def jb(book_folder):
+    """
+    (which runs jupyter-book build book_folder)
+    """
     patterns = ['*.md']
     ignore_patterns = []
     command = f"jupyter-book build {book_folder}"
@@ -71,7 +79,10 @@ def watch_jb(book_folder):
 
 @main.command()
 @click.argument("notebook_folder", type=str, nargs=1)
-def watch_nb(notebook_folder):
+def nb(notebook_folder):
+    """
+    (which runs sphinx-build -v -a -b html notebook_folder notebook_folder/_build/html)
+    """
     patterns = ['*.md']
     ignore_patterns = []
     output_name = Path(f"{notebook_folder}/_{notebook_folder}_build/html").resolve()

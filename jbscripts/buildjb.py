@@ -26,7 +26,16 @@ def cd(path):
 @click.group()
 def main():
     """
-    build books or notebooks
+    set of tools for building a list of books (using jb build)
+    or notebooks (using sphinx-build)
+
+    usage:
+
+    ebp-build jb book1 book2 ...
+        -- this runs jb build bookx in turn
+
+    ebp-build nb folder1 folder2 ...
+        -- this runs sphinx-build on folders in turn
     """
     pass
 
@@ -34,12 +43,11 @@ def main():
 
 @main.command()
 @click.argument("notebook_list",type=str, nargs= -1)
-def build_nb(notebook_list):
-    #
-    # change into the directory to execute sphin-build, returning
-    # to the run directory once the command completes or if
-    # there is an exception
-    #
+def nb(notebook_list):
+    """
+    (which runs sphinx-build -v -a -b html notebook_folder notebook_folder/_build/html)
+    on all notebooks in the list
+    """
     for the_dir in notebook_list:
         the_dir=Path(the_dir)
         if not the_dir.is_dir():
@@ -59,10 +67,10 @@ def build_nb(notebook_list):
 
 @main.command()
 @click.argument("book_list",type=str, nargs= -1)
-def build_jb(book_list):
-    #
-    # build a list of jupyter books
-    #
+def jb(book_list):
+    """
+    (which runs jupyter-book build book_folder on all folders in the list)
+    """
     for the_dir in book_list:
         the_dir = Path(the_dir)
         with cd(the_dir.parent):
