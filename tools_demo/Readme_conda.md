@@ -10,7 +10,7 @@ https://github.com/eoas-ubc/jb_tools and https://www.npmjs.com/package/live-serv
 
 0) clone this repo and install conda-lock
 
-1) in case some packages have changed, you can )(optionally) redo the
+1) in case some packages have changed, you can (optionally) redo the
    conda-lock files in this folder with:
 
 `conda-lock -f environment.yml -p osx-64 -p linux-64 -p win-64`
