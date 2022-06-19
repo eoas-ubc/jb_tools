@@ -5,7 +5,7 @@ channels:
   - defaults
 dependencies:
   - git
-  - python<3.10
+  - python>3.8
   - bz2file
   - jupyter-book
   - jupyter
@@ -17,5 +17,6 @@ dependencies:
   - setuptools_scm
   - nodejs
   - watchfiles
+# conda-lock --kind explicit --file environment.yml -p linux-64
 
 
