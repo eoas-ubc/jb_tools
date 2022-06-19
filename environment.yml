@@ -1,14 +1,21 @@
-name: watchdog
+name: watchfiles
 channels:
   - eoas_ubc
   - conda-forge
   - defaults
 dependencies:
   - git
-  - python=3.8
+  - python<3.10
+  - bz2file
+  - jupyter-book
+  - jupyter
+  - jupyterlab
+  - jupyter_contrib_nbextensions
+  - notebook
   - pip
   - click
+  - setuptools_scm
   - nodejs
-  - watchdog
-  
+  - watchfiles
+
 

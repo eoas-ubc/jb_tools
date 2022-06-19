@@ -17,9 +17,9 @@ build:
 
 requirements:
   build:
-    - python ==3.8
+    - python > 3.8
     - click
-    - watchdog
+    - watchfiles
 
   run:
     - python

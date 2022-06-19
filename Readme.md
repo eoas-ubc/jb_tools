@@ -2,7 +2,7 @@
 
 * ebp-build:  build a list of jupyter-books or  myst_nb notebooks
 
-* ebp-watch:  use watchdog to trigger a notebook or jupyter-book build
+* ebp-watch:  use [watchfiles](https://github.com/samuelcolvin/watchfiles) to trigger a notebook or jupyter-book build
 
 To install:
 

@@ -1,0 +1,14 @@
+[build-system]
+requires = [
+    "setuptools >= 48",
+    "setuptools_scm[toml] >= 4, <6",
+    "setuptools_scm_git_archive",
+    "wheel >= 0.29.0"
+]
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools_scm]
+write_to = "src/jbscripts/VERSION.txt"
+# this finds last tag of the form v0.2.8
+# copied from https://github.com/dib-lab/screed/blob/latest/pyproject.toml
+#git_describe_command = "git describe --dirty --tags --long --match v* --first-parent"
