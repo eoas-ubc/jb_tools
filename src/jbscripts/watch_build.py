@@ -18,7 +18,7 @@ class MarkdownFilter(DefaultFilter):
             path.endswith(self.allowed_extensions)
         )
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 
 @click.group()
@@ -43,11 +43,9 @@ def jb(book_folder):
     """
     (which runs jupyter-book build book_folder)
     """
-    print(f"{book_folder=}")
     command = f"jupyter-book build {book_folder}"
-    print(f"{command=}")
     directory = book_folder
-    run_process(directory, target = command, watch_filter = MarkdownFilter)
+    run_process(directory, target = command, watch_filter = MarkdownFilter())
 
 
 @main.command()
