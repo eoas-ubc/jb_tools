@@ -49,7 +49,7 @@ If the jupyter-book `_toc.yml` file is in folder `jupyter-book/docs`
 
 3) start watching the html folder with:
 
-   `live-server docs/_build/html`
+   `live-server docs/_build/htmlx`
 
 4) change https://github.com/executablebooks/jupyter-book/blob/master/docs/intro.md
    and the book should rebuild and your browser should refresh.

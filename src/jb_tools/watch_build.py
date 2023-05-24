@@ -10,7 +10,7 @@ import logging
 from watchfiles import Change, DefaultFilter, run_process
 
 class MarkdownFilter(DefaultFilter):
-    allowed_extensions = ('.md',)
+    allowed_extensions = ('.md','.yml')
 
     def __call__(self, change: Change, path: str) -> bool:
         return (

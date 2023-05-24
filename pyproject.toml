@@ -7,8 +7,26 @@ requires = [
 ]
 build-backend = 'setuptools.build_meta'
 
+[project]
+name = "jb_tools"
+description = "jupyter-book utilities"
+authors = [
+  { name="Philip Austin", email="paustin@eoas.ubc.ca" },
+]
+dynamic = ["version"]   
+
+dependencies = [
+    'bz2file',
+    'watchfiles',
+    'setuptools_scm',
+    'click'
+]
+
+[project.scripts]
+  ebp-build = 'jb_tools.buildjb:main'
+  ebp-watch = 'jb_tools.watch_build:main'
+
 [tool.setuptools_scm]
-write_to = "src/jbscripts/VERSION.txt"
-# this finds last tag of the form v0.2.8
-# copied from https://github.com/dib-lab/screed/blob/latest/pyproject.toml
-#git_describe_command = "git describe --dirty --tags --long --match v* --first-parent"
+write_to = "src/jb_tools/_version.py"
+root = "."
+
