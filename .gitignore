@@ -1,1 +1,9 @@
-*conda-bld
+docs/
+_build
+docs/
+__pycache__
+*pyc
+build/
+*egg-info/
+*conda-bld/
+*~
